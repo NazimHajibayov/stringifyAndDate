@@ -1,6 +1,7 @@
 const formatDate = time => String(time).padStart(2, "0");
 
 const a = (date = new Date()) => {
+
   return {
 
     year(yearDate = date.getFullYear()) {

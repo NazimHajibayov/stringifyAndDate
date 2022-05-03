@@ -1,28 +1,36 @@
 let customJSON = {
-    stringify (parameters) {
+    stringify (obj) {
       let jsonFormat='';
-      if (typeof(parameters) === "object" && parameters != null) {
-        for (keys in parameters ) {
-          if(parameters[keys] === undefined){
+
+      if (typeof(obj) === "object" && obj != null) {
+        for (keys in obj ) {
+
+          if(obj[keys] === undefined){
             continue;
           }
-          typeof(parameters[keys]) == "string" ? (jsonFormat += `\"${keys}\":\"${parameters[keys]}\",`) : (jsonFormat += `\"${keys}\":${parameters[keys]},`);
+
+          typeof(obj[keys]) == "string" ? jsonFormat += `\"${keys}\":\"${obj[keys]}\",` : jsonFormat += `\"${keys}\":${obj[keys]},`;
         }
+
         jsonFormat = jsonFormat.split("");
         jsonFormat.splice(-1, 1);
         jsonFormat = jsonFormat.join("");
+
         return `{${jsonFormat}}`;
       }
-      return typeof parameters === "string" ? `\"${parameters}\"` : parameters;
+
+      return typeof obj === "string" ? `\"${obj}\"` : obj;
     },
   };
-  
+
   let obj = {
     name: "cart",
     surname: "curt",
     age: 25,
     where: undefined
   };
-  
-   console.log(customJSON.stringify(obj));
-  console.log(JSON.stringify(obj))
+
+  const resultStringify = customJSON.stringify(obj);
+
+  console.log(resultStringify);
+  console.log(JSON.stringify(obj));

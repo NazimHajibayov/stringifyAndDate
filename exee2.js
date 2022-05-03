@@ -36,10 +36,12 @@ const setTimeInterval = (seconds) => {
         timerCounter--;
 
         console.log('Time:', time);
-      } 
-    }
+      };
+    };
+
     return `Time stopped after ${timer} seconds.`;
-  }
+  };
+
   return 'Please send a number as an argument.';
 };
 
