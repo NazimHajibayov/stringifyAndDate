@@ -1,6 +1,6 @@
 const formatDate = time => String(time).padStart(2, "0");
 
-const a = (date = new Date()) => {
+const setDate = (date = new Date()) => {
 
   return {
 
@@ -49,6 +49,6 @@ const a = (date = new Date()) => {
 
 const date = new Date();
 
-a(date).year(2030).month(-3).day(12).hours(-14).minutes(undefined).seconds(80);
+setDate(date).year(2030).month(-3).day(12).hours(-14).minutes(undefined).seconds(80);
 
 console.log(date);
